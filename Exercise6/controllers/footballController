@@ -1,0 +1,18 @@
+"use strict";
+
+const axios = require('axios');
+
+const footballAPI = process.env.FOOTBALL_API_ENDPOINT + "?token=" + process.env.FOOTBALL_API_TOKEN;
+
+console.log(footballAPI);
+exports.getFootballHighlights = async (req, res) => {
+    try {
+        const response = await axios.get(footballAPI);
+        res.status(200);
+        res.json({
+            data: JSON.parse(JSON.stringify(response.data)
+         )});
+    } catch (e) {
+        throw Error(e.message);
+    }
+};
