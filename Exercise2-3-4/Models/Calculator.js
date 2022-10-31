@@ -1,10 +1,11 @@
 class Calculator {
     constructor() {
-        this.id = Date.now();
+        //this.id = Date.now();
+        this.id = Math.floor(Math.random() * 100000) //or this to create a random id
     }
 
     #log = (value) => {
-        console.log(value);
+        console.log(`${this.id}: ${value}`);
     };
 
     add = (num1, num2) => {

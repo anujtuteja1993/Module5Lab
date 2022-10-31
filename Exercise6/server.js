@@ -9,6 +9,8 @@ const port = process.env.PORT || 3000;
 //Enable all cors for all request
 app.use(cors())
 
+app.use('/', express.static('MiniProjectNode')) //map everything in this folder to the root endpoint, so it will load index.html
+
 routes(app); //register the route
 
 app.listen(port, (error) => {
